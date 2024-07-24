@@ -1,3 +1,4 @@
+const apiUrl = process.env.REACT_APP_API_URL;
 import React, { useEffect, useState } from 'react';
 import './Hidescollbar.css';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +22,7 @@ const Home = () => {
         // Fetch friends from the backend
         const fetchFriends = async () => {
             try {
-                const response = await fetch('http://localhost:3001/api/users/getuser', {
+                const response = await fetch(`${apiUrl}/api/users/getuser`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

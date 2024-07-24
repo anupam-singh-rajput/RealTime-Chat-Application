@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ForgetTrue from './ForgetTrue';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Forget = () => {
     const [email, setEmail] = useState('');
@@ -8,7 +9,7 @@ const Forget = () => {
     const handleForgetForm = async (e) => {
         e.preventDefault();
         try {
-            let response = await fetch('http://localhost:3001/api/users/forget', {
+            let response = await fetch(`${apiUrl}/api/users/forget`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email }),

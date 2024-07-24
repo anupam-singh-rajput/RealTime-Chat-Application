@@ -1,8 +1,9 @@
+const apiUrl = process.env.REACT_APP_API_URL;
 import io from 'socket.io-client';
 import React, { useState, useEffect, useRef } from 'react';
 import Cookies from 'js-cookie';
 
-const socket = io('http://localhost:3001');
+const socket = io(`${apiUrl}`);
 
 const Chats = React.memo(({ selectedUser }) => {
   const [inpmsg, setinpmsg] = useState(''); // Current input message
@@ -19,7 +20,7 @@ const Chats = React.memo(({ selectedUser }) => {
           throw new Error('Selected user is not defined');
         }
 
-        const response = await fetch("http://localhost:3001/api/users/chatroom", {
+        const response = await fetch(`${apiUrl}/api/users/chatroom`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

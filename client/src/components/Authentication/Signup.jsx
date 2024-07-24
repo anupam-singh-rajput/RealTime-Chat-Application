@@ -1,3 +1,4 @@
+const apiUrl = process.env.REACT_APP_API_URL;
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -19,7 +20,7 @@ const Signup = () => {
 
     if (username !== '' && password !== '' && name !== '') { // Check if name is also provided
       try {
-        const response = await fetch('http://localhost:3001/api/users/signup', {
+        const response = await fetch(`${apiUrl}/api/users/signup`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

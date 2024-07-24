@@ -1,3 +1,4 @@
+const apiUrl = process.env.REACT_APP_API_URL;
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +21,7 @@ const ForgetTrue = (props) => {
                 alert('Both passwords must be the same');
             } else {
                 //if everything is correct
-                let response = await fetch('http://localhost:3001/api/users/update', {
+                let response = await fetch(`${apiUrl}/api/users/update`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password }),

@@ -1,3 +1,4 @@
+const apiUrl = process.env.REACT_APP_API_URL;
 import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
@@ -18,7 +19,7 @@ const Profile = () => {
             }
 
             try {
-                const response = await fetch('http://localhost:3001/api/users/user', {
+                const response = await fetch(`${apiUrl}/api/users/user`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

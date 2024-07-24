@@ -1,3 +1,4 @@
+const apiUrl = process.env.REACT_APP_API_URL;
 import React, { useState } from 'react';
 import './Hidescollbar.css'; 
 import Cookies from 'js-cookie';
@@ -20,7 +21,7 @@ const Search = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/users/search', {
+      const response = await fetch(`${apiUrl}/api/users/search`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
